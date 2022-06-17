@@ -2,16 +2,10 @@
 import { } from '#app';
 
 const route = useRoute();
-const num: number = +route.params.num;
-interface PhotoObject {
-  id: string;
-  user: object;
-  urls: object
-}
-
 const summary = useSummary();
 
-const photos = ref<PhotoObject[]>([]);
+const num: number = +route.params.num;
+const photos = ref([]);
 
 const changeSummary = (price: number, sign: boolean) => {
   if (sign) {

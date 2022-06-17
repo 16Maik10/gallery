@@ -4,16 +4,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['changeCount']);
-
 const cards = useCards();
-
-onBeforeMount(() => {
-  if (!cards.value.hasOwnProperty(props.photo.id)) {
-    cards.value[props.photo.id] = {};
-    cards.value[props.photo.id].count = 0;
-    cards.value[props.photo.id].price = Math.ceil((Math.random() * 59000) + 1000);
-  }
-})
 
 const add = () => {
   cards.value[props.photo.id].count++;
@@ -24,6 +15,14 @@ const remove = () => {
   cards.value[props.photo.id].count--;
   emit('changeCount', cards.value[props.photo.id].price, false);
 }
+
+onBeforeMount(() => {
+  if (!cards.value.hasOwnProperty(props.photo.id)) {
+    cards.value[props.photo.id] = {};
+    cards.value[props.photo.id].count = 0;
+    cards.value[props.photo.id].price = Math.ceil(Math.random() * 59000 + 1000);
+  }
+})
 </script>
 
 <template>

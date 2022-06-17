@@ -1,18 +1,8 @@
 <script setup lang="ts">
-
 import { } from "#app"
-import { log } from "console";
 
 const summary = useSummary();
-
-interface PhotoObject {
-  id: string;
-  user: object;
-  urls: object
-}
-
-
-const photos = ref<PhotoObject[]>([]);
+const photos = ref([]);
 
 const changeSummary = (price: number, sign: boolean) => {
   if (sign) {
